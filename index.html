@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The 7th Cycle of Death - The Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/hr813yJ.png">
+  <link rel="apple-touch-icon" href="https://i.imgur.com/hr813yJ.png">
+</head>
+<body>
+
+  <!-- Başlatma ekranı (tarayıcılar ses için bir tıklama istiyor) -->
+  <div class="screen show" id="gate" role="button" tabindex="0">
+    <p id="gateText"></p>
+    <span class="hint" id="gateHint"></span>
+  </div>
+
+  <!-- Intro -->
+  <div class="screen" id="intro" role="button" tabindex="0">
+    <p id="introText"></p>
+    <span class="hint" id="skip"></span>
+  </div>
+
+  <!-- Ana Menü -->
+  <div class="screen" id="menu">
+    <div class="cycle" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(179,18,46,.35)" stroke-width=".6"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(233,228,242,.08)" stroke-width=".5" stroke-dasharray="2 5"/>
+        <g fill="#b3122e" opacity=".7">
+          <circle cx="100" cy="8" r="1.8"/><circle cx="171.9" cy="42.6" r="1.8"/><circle cx="189.7" cy="120.5" r="1.8"/>
+          <circle cx="139.9" cy="182.9" r="1.8"/><circle cx="60.1" cy="182.9" r="1.8"/><circle cx="10.3" cy="120.5" r="1.8"/>
+          <circle cx="28.1" cy="42.6" r="3.2" fill="#ff4d5e"/>
+        </g>
+      </svg>
+    </div>
+    <div class="meteor" id="meteor" aria-hidden="true"></div>
+
+    <div id="logoBox">
+      <img src="https://i.imgur.com/hr813yJ.png" alt="The 7th Cycle of Death - The Game" id="logoImg">
+      <span id="logoText">The 7th Cycle of Death<small>THE GAME</small></span>
+    </div>
+
+    <div class="menu-buttons">
+      <button class="menu-btn" id="continueBtn"></button>
+      <button class="menu-btn" id="playBtn"></button>
+    </div>
+
+    <div id="langSwitch" role="group" aria-label="Language / Dil">
+      <button data-lang="en">English</button>
+      <button data-lang="tr">Türkçe</button>
+    </div>
+
+    <span id="copy">© 2026 Cold Works Production™</span>
+  </div>
+
+  <!-- Oyun (Visual Novel) -->
+  <div class="screen" id="game">
+    <div class="bg" id="bg"></div>
+    <div class="fx" id="fx" aria-hidden="true"></div>
+    <div id="cycleTag" aria-live="polite"></div>
+    <div id="choices"></div>
+
+    <div id="box" role="button" tabindex="0">
+      <div id="speaker"></div>
+      <p id="line"></p>
+      <span id="next" aria-hidden="true">▼</span>
+    </div>
+
+    <!-- Bulmaca paneli -->
+    <div id="puzzle" role="dialog" aria-modal="true" aria-labelledby="pzTitle">
+      <div class="pz-card">
+        <h2 id="pzTitle"></h2>
+        <p id="pzClue"></p>
+        <div id="pzBody"></div>
+        <p id="pzMsg" aria-live="polite"></p>
+        <button id="pzHint"></button>
+      </div>
+    </div>
+
+    <!-- Bölüm başlığı / sonu -->
+    <div id="card"><p id="cardTitle"></p><p id="cardSub"></p></div>
+  </div>
+
+  <button id="muteBtn">♪</button>
+  <div id="fade"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
